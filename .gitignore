@@ -1,0 +1,20 @@
+# Compiled files
+*.class
+*.jar
+*.war
+
+# Build folders
+bin/
+out/
+build/
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+*.eclipse
+
+# OS files
+.DS_Store
+Thumbs.db
+/.metadata/
