@@ -137,7 +137,7 @@ VisaProcessingSystem---OOP/
 | Name | GitHub |
 |---|---|
 | Member 1 | [@Error1504](https://github.com/Error1504) |
-| Member 2 | — |
+| Member 2 | [@abdulhadiasifhassan-coder](https://github.com/abdulhadiasifhassan-coder) |
 | Member 3 | — |
 
 > 📚 Course: CMPS_251 — Object Oriented Programming
