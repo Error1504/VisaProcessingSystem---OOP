@@ -33,7 +33,7 @@ public class Officer {
 
 	@Override
 	public String toString() {
-		return "Officer "+ name +" - [ID: " + id+"]";
+		return "Officer " + name + " - [ID: " + id + "]";
 	}
 
 }
