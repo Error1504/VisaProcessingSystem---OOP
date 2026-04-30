@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
-public class DataLoader {
+public class DataLoader implements DataManager {
 	private ArrayList<Applicant> applicants;
 	private ArrayList<Application> applications;
 	private ArrayList<Officer> officers;
