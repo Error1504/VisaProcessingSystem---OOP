@@ -146,7 +146,7 @@ public class DataLoader implements DataManager{
 				}
 				else if(a instanceof WorkVisa) {
 					WorkVisa w = (WorkVisa) a;
-					line = "WORK, " + a.getAppliactionNO() + "," + a.getApplicant().getPassportNo() + ", " + a.getSubmissionDate() + "," + a.getStatus() + "," + (a.getOfficer() == null ? "N/A" : a.getOfficer().getId()) + "," + s.getUniversityName() + ", " + w.getCompanyName() + "," + w.getSalary() + "," + w.getContractYears();
+					line = "WORK, " + a.getAppliactionNO() + "," + a.getApplicant().getPassportNo() + ", " + a.getSubmissionDate() + "," + a.getStatus() + "," + (a.getOfficer() == null ? "N/A" : a.getOfficer().getId()) + "," + w.getCompanyName() + "," + w.getSalary() + "," + w.getContractYears();
 
 				}
 				out.write(line);
