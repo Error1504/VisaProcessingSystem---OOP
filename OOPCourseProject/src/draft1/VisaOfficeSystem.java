@@ -82,9 +82,9 @@ public class VisaOfficeSystem {
 		}
 	}
 
-	public void removeApplication(int appNo) {
+	public void removeApplication(int applicationNo) {
 		for (Application a : applications) {
-			if (appNo == a.getApplicationNO())
+			if (applicationNo == a.getApplicationNO())
 				applications.remove(a);
 			break;
 		}
