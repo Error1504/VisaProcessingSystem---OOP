@@ -83,13 +83,16 @@ public class VisaOfficeSystem {
 	}
 
 	public void removeApplication(int applicationNo) {
-		for (Application a : applications) {
-			if (applicationNo == a.getApplicationNO())
-				applications.remove(a);
-			break;
-		}
+		Application application = findApplicationByNo(applicationNo);
+        if (app != null) {
+            applications.remove(application);
+            System.out.println("Application " + applicationNo + " removed successfully");
+        } else {
+            System.out.println("Application " + applicationNo + " not found.");
+        }
+    }
 
-	}
+	
 
 	public void processApplication(Application application, Status status) {
 
