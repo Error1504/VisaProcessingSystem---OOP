@@ -23,7 +23,7 @@ public abstract class Application {
 	public abstract double calculateProcessingFee();
 
 	public int getApplicationNO() {
-		return application;
+		return applicationNO;
 	}
 
 	public void setApplicationNO(int applicationNO) {

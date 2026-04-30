@@ -142,20 +142,20 @@ public class DataLoader implements DataManager {
 				String line = "";
 				if (a instanceof TouristVisa) {
 					TouristVisa t = (TouristVisa) a; // downcasting karle
-					line = "TOURIST, " + a.getAppliactionNO() + "," + a.getApplicant().getPassportNo() + ", "
+					line = "TOURIST, " + a.getApplicationNO() + "," + a.getApplicant().getPassportNo() + ", "
 							+ a.getSubmissionDate() + "," + a.getStatus() + ","
 							+ (a.getOfficer() == null ? "N/A" : a.getOfficer().getId()) + "," + t.getDurationDays()
 							+ ", " + t.isHotelReservation();
 				} else if (a instanceof StudentVisa) {
 					StudentVisa s = (StudentVisa) a;
-					line = "STUDENT, " + a.getAppliactionNO() + "," + a.getApplicant().getPassportNo() + ", "
+					line = "STUDENT, " + a.getApplicationNO() + "," + a.getApplicant().getPassportNo() + ", "
 							+ a.getSubmissionDate() + "," + a.getStatus() + ","
 							+ (a.getOfficer() == null ? "N/A" : a.getOfficer().getId()) + "," + s.getUniversityName()
 							+ ", " + s.getStudyDurationYears() + "," + s.isScholarship();
 
 				} else if (a instanceof WorkVisa) {
 					WorkVisa w = (WorkVisa) a;
-					line = "WORK, " + a.getAppliactionNO() + "," + a.getApplicant().getPassportNo() + ", "
+					line = "WORK, " + a.getApplicationNO() + "," + a.getApplicant().getPassportNo() + ", "
 							+ a.getSubmissionDate() + "," + a.getStatus() + ","
 							+ (a.getOfficer() == null ? "N/A" : a.getOfficer().getId()) + "," + w.getCompanyName() + ","
 							+ w.getSalary() + "," + w.getContractYears();
