@@ -3,16 +3,16 @@ package draft1;
 import java.time.LocalDate;
 
 public abstract class Application {
-	private int appNO;
+	private int applicationNO;
 	private LocalDate submissionDate;
 	private Applicant applicant;
 	private Status status;
 	private Officer officer;
 	public final double OFFICE_FEE = 250;
 
-	public Application(int appNO, LocalDate submissionDate, Applicant applicant, Status status, Officer officer) {
+	public Application(int applicationNO, LocalDate submissionDate, Applicant applicant, Status status, Officer officer) {
 		super();
-		this.appNO = appNO;
+		this.applicationNO = applicationNO;
 		this.submissionDate = submissionDate;
 		this.applicant = applicant;
 		this.status = status;
@@ -22,12 +22,12 @@ public abstract class Application {
 
 	public abstract double calculateProcessingFee();
 
-	public int getAppliactionNO() {
-		return appNO;
+	public int getApplicationNO() {
+		return application;
 	}
 
-	public void setAppliactionNO(int appliactionNO) {
-		this.appNO = appliactionNO;
+	public void setApplicationNO(int applicationNO) {
+		this.applicationNO = applicationNO;
 	}
 
 	public LocalDate getSubmissionDate() {
@@ -76,7 +76,7 @@ public abstract class Application {
 
 	@Override
 	public String toString() {
-		return "Application No: " + appNO + "\n" + "Applicant info: " + applicant.toString() + "\n" + "Status: "
+		return "Application No: " + applicationNO + "\n" + "Applicant info: " + applicant.toString() + "\n" + "Status: "
 				+ status + "\n" + "SubmissionDate: " + submissionDate + "\n" + "Officer: " + officer.toString();
 	}
 }
