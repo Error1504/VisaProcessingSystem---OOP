@@ -21,7 +21,7 @@ public class VisaOfficeSystem {
 
 	public void addVisaOfficer(Officer officer) {
 		officer_counter++;
-//		officer.setId(officer_counter);
+		officer.setId(officer_counter);
 		officers.add(officer);
 		System.out.println("Officer " + officer.getName() + " is successfully added to the system.");
 
@@ -29,7 +29,7 @@ public class VisaOfficeSystem {
 
 	public void addApplication(Application application) {
 		application_counter++;
-//		application.setAppliactionNO(application_counter);
+		application.setApplicationNO(application_counter);
 		applications.add(application);
 	}
 
