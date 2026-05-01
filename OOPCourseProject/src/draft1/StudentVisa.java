@@ -49,7 +49,7 @@ public class StudentVisa extends Application{
 
 	}
 	public String getVisaType(){
-		return "StudentVisa"
+		return "StudentVisa";
 	}
 
 	@Override

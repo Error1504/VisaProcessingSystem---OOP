@@ -39,7 +39,7 @@ public class TouristVisa extends Application {
 		return TOURIST_FEE + OFFICE_FEE;
 	}
 	public String getVisaType(){
-		return "TouristVisa"
+		return "TouristVisa";
 	}
 
 	@Override

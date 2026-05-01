@@ -49,7 +49,7 @@ public class WorkVisa extends Application {
 		return WORK_FEE + OFFICE_FEE;
 	}
 	public String getVisaType(){
-		return "WorkVisa"
+		return "WorkVisa";
 	}
 
 	@Override

@@ -122,7 +122,7 @@ public class VisaOfficeSystem {
         String officerName   =  a.getOfficer().getName();
 
         System.out.printf("%18d %15s %15s %15s %10s %15s %12s %12s%n",
-                a.getAppNo(),
+                a.getApplicationNO(),
                 applicantName,
                 passportNo,
                 nationality,

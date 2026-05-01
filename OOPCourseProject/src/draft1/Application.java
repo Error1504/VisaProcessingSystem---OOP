@@ -74,6 +74,8 @@ public abstract class Application {
 		setStatus(Status.REJECTED);
 	}
 
+	public abstract String getVisaType();
+
 	@Override
 	public String toString() {
 		return "Application No: " + applicationNO + "\n" + "Applicant info: " + applicant.toString() + "\n" + "Status: "
