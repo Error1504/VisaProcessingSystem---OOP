@@ -157,8 +157,8 @@ public class VisaOfficeSystem {
 		double totalRevenue = 0;
 		for (Application a : applications) {
 			totalRevenue += a.calculateProcessingFee();
-			System.out.printf("Total revenue is: QAR %.1f\n", totalRevenue);
 		}
+		System.out.printf("Total revenue is: QAR %.1f\n", totalRevenue);
 	}
 
 	public void displayPendingApplications() {
