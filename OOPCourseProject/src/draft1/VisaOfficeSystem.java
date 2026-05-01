@@ -109,7 +109,7 @@ public class VisaOfficeSystem {
 	public void displayAssignedApplications(int officerID) {
 		ArrayList<Application> result = new ArrayList<>();
 		for (Application a : applications) {
-			if (a.getOfficer().getId() == officerID)
+			if (a.getOfficer()!= null && a.getOfficer().getId() == officerID)
 				result.add(a);
 
 			}
