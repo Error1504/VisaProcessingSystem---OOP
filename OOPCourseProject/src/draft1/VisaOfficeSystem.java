@@ -138,7 +138,7 @@ public class VisaOfficeSystem {
 		System.out.printf("%-18s %-15s %-15s %-15s %-10s %-15s %-12s %-12s%n",
                 "Application No", "Applicant Name", "Passport No.", "Nationality",
                 "Status", "Submission Date", "Visa Type", "Officer");
-        for (Application a : applications) {
+        for (Application a : app) {
             displayApplicationTabular(a);
         }
 	}
@@ -162,12 +162,14 @@ public class VisaOfficeSystem {
 	}
 
 	public void displayPendingApplications() {
-		for (Application a : applications) {
-			if (a.getStatus() == (Status.PENDING)) {
-				System.out.println(a);
-			}
-		}
-	}
+    ArrayList<Application> pending = new ArrayList<>();
+    for (Application a : applications) {
+        if (a.getStatus() == Status.PENDING) {
+            pending.add(a);
+        }
+    }
+    displayApplicationsTabular(pending);
+}
 
 	public void applicantWithMostApplications() {
 		int mostApp = 0;
