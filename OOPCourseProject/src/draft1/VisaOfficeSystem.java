@@ -77,9 +77,7 @@ public class VisaOfficeSystem {
 	}
 
 	public void viewAllApplications() {
-		for (Application a : applications) {
-			System.out.println(a);
-		}
+		displayApplicationsTabular(applications);
 	}
 
 	public void removeApplication(int applicationNo) {
@@ -109,10 +107,14 @@ public class VisaOfficeSystem {
 	}
 
 	public void displayAssignedApplications(int officerID) {
+		ArrayList<Application> result = new ArrayList<>();
 		for (Application a : applications) {
 			if (a.getOfficer().getId() == officerID)
-				System.out.println(a);
-		}
+				result.add(a);
+
+			}
+				displayApplicationsTabular(result);
+		
 	}
 
 	public void displayApplicationTabular(Application a) {
@@ -132,13 +134,22 @@ public class VisaOfficeSystem {
                 officerName);
 
 	}
+	public void displayApplicationsTabular(ArrayList<Application> app){
+		System.out.printf("%-18s %-15s %-15s %-15s %-10s %-15s %-12s %-12s%n",
+                "Application No", "Applicant Name", "Passport No.", "Nationality",
+                "Status", "Submission Date", "Visa Type", "Officer");
+        for (Application a : applications) {
+            displayApplicationTabular(a);
+        }
+	}
 
-	public void displayApplicationBeforeDate(LocalDate date) {
+	public void displayApplicationsBeforeDate(LocalDate date) {
+		ArrayList<Application> result = new ArrayList<>();
 		for (Application a : applications) {
-			if (a.getSubmissionDate().isBefore(date)) {
-				System.out.println(a);
+			if (a.getSubmissionDate().isBefore(date)) 
+				result.add(a);
 			}
-		}
+			displayApplicationsTabular(result);
 
 	}
 
