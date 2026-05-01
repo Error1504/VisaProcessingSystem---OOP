@@ -43,11 +43,12 @@ public class StudentVisa extends Application{
 	public double getSTUDENT_FEE() {
 		return STUDENT_FEE;
 	}
-
+	@Override
 	public double calculateProcessingFee() {
 		return STUDENT_FEE + OFFICE_FEE;
 
 	}
+	@Override
 	public String getVisaType(){
 		return "StudentVisa";
 	}
