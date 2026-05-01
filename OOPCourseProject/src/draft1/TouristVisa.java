@@ -38,13 +38,14 @@ public class TouristVisa extends Application {
 	public double calculateProcessingFee() {
 		return TOURIST_FEE + OFFICE_FEE;
 	}
+	@Override
 	public String getVisaType(){
 		return "TouristVisa";
 	}
 
 	@Override
 	public String toString() {
-		return super.toString() + "\n" + "Visa Type: TouristVisa\n" + "Duration Days: " + durationDays + "\n"
+		return super.toString() + "\n" + "Visa Type: "+ getVisaType +"\n" + "Duration Days: " + durationDays + "\n"
 				+ "Hotel Reservation: " + hotelReservation;
 	}
 }

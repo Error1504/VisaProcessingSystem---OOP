@@ -48,13 +48,14 @@ public class WorkVisa extends Application {
 	public double calculateProcessingFee() {
 		return WORK_FEE + OFFICE_FEE;
 	}
+	@Override
 	public String getVisaType(){
 		return "WorkVisa";
 	}
 
 	@Override
 	public String toString() {
-		return super.toString() + "\n" + "Visa Type: WorkVisa\n" + "Company Name: " + companyName + "\n" + "Salary: $"
+		return super.toString() + "\n" + "Visa Type: "+ getVisaType +"\n" + "Company Name: " + companyName + "\n" + "Salary: $"
 				+ String.format("%.2f", salary) + "\n" + "Contract Years: " + contractYears + " year(s)";
 	}
 

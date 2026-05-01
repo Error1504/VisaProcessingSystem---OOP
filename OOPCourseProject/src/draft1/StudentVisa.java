@@ -54,7 +54,7 @@ public class StudentVisa extends Application{
 
 	@Override
 	public String toString() {
-		return super.toString() + "\n" + "Visa Type: StudentVisa\n" + "University Name: " + universityName + "\n"
+		return super.toString() + "\n" + "Visa Type: "+ getVisaType +"\n" + "University Name: " + universityName + "\n"
 				+ "Study Duration: " + studyDurationYears + " years\n" + "Scholarship: " + scholarship;
 	}
 }
