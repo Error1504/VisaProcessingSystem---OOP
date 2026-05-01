@@ -116,6 +116,20 @@ public class VisaOfficeSystem {
 	}
 
 	public void displayApplicationTabular(Application a) {
+		String applicantName = a.getApplicant().getName();
+        String passportNo    =  a.getApplicant().getPassportNo();
+        String nationality   =  a.getApplicant().getNationality();
+        String officerName   =  a.getOfficer().getName();
+
+        System.out.printf("%18d %15s %15s %15s %10s %15s %12s %12s%n",
+                a.getAppNo(),
+                applicantName,
+                passportNo,
+                nationality,
+                a.getStatus(),
+                a.getSubmissionDate(),
+                a.getVisaType(),
+                officerName);
 
 	}
 

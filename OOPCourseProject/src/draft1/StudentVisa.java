@@ -48,6 +48,9 @@ public class StudentVisa extends Application{
 		return STUDENT_FEE + OFFICE_FEE;
 
 	}
+	public String getVisaType(){
+		return "StudentVisa"
+	}
 
 	@Override
 	public String toString() {

@@ -38,6 +38,9 @@ public class TouristVisa extends Application {
 	public double calculateProcessingFee() {
 		return TOURIST_FEE + OFFICE_FEE;
 	}
+	public String getVisaType(){
+		return "TouristVisa"
+	}
 
 	@Override
 	public String toString() {
