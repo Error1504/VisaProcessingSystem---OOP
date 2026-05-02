@@ -28,7 +28,7 @@ public class VisaOfficeSystem {
 	}
 
 	public void addApplication(Application application) {
-		 application_counter++;
+		application_counter++;
 		application.setApplicationNO(application_counter);
 		applications.add(application);
 	}
