@@ -28,8 +28,8 @@ public class VisaOfficeSystem {
 	}
 
 	public void addApplication(Application application) {
-		// application_counter++;
-	//	application.setApplicationNO(application_counter);
+		 application_counter++;
+		application.setApplicationNO(application_counter);
 		applications.add(application);
 	}
 
@@ -123,7 +123,7 @@ public class VisaOfficeSystem {
         String nationality   =  a.getApplicant().getNationality();
         String officerName   =  a.getOfficer().getName();
 
-        System.out.printf("%18d %15s %15s %15s %10s %15s %12s %12s%n",
+        System.out.printf("%15d %15s %15s %15s %10s %15s %12s %12s%n",
                 a.getApplicationNO(),
                 applicantName,
                 passportNo,
@@ -135,7 +135,7 @@ public class VisaOfficeSystem {
 
 	}
 	public void displayApplicationsTabular(ArrayList<Application> app){
-		System.out.printf("%-18s %-15s %-15s %-15s %-10s %-15s %-12s %-12s%n",
+		System.out.printf("%-15s %-15s %-15s %-15s %-10s %-15s %-12s %-12s%n",
                 "Application No", "Applicant Name", "Passport No.", "Nationality",
                 "Status", "Submission Date", "Visa Type", "Officer");
         for (Application a : app) {
