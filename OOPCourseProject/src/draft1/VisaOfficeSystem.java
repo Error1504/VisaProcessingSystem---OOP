@@ -82,15 +82,13 @@ public class VisaOfficeSystem {
 
 	public void removeApplication(int applicationNo) {
 		Application application = findApplicationByApplicationNo(applicationNo);
-        if (application != null) {
-            applications.remove(application);
-            System.out.println("Application " + applicationNo + " removed successfully");
-        } else {
-            System.out.println("Application " + applicationNo + " not found.");
-        }
-    }
-
-	
+		if (application != null) {
+			applications.remove(application);
+			System.out.println("Application " + applicationNo + " removed successfully");
+		} else {
+			System.out.println("Application " + applicationNo + " not found.");
+		}
+	}
 
 	public void processApplication(Application application, Status status) {
 
@@ -109,47 +107,40 @@ public class VisaOfficeSystem {
 	public void displayAssignedApplications(int officerID) {
 		ArrayList<Application> result = new ArrayList<>();
 		for (Application a : applications) {
-			if (a.getOfficer()!= null && a.getOfficer().getId() == officerID)
+			if (a.getOfficer() != null && a.getOfficer().getId() == officerID)
 				result.add(a);
 
-			}
-				displayApplicationsTabular(result);
-		
+		}
+		displayApplicationsTabular(result);
+
 	}
 
 	public void displayApplicationTabular(Application a) {
 		String applicantName = a.getApplicant().getName();
-        String passportNo    =  a.getApplicant().getPassportNo();
-        String nationality   =  a.getApplicant().getNationality();
-        String officerName   =  a.getOfficer().getName();
+		String passportNo = a.getApplicant().getPassportNo();
+		String nationality = a.getApplicant().getNationality();
+		String officerName = a.getOfficer().getName();
 
-        System.out.printf("%15d %15s %15s %15s %10s %15s %12s %12s%n",
-                a.getApplicationNO(),
-                applicantName,
-                passportNo,
-                nationality,
-                a.getStatus(),
-                a.getSubmissionDate(),
-                a.getVisaType(),
-                officerName);
+		System.out.printf("%15d %15s %15s %15s %10s %15s %12s %12s%n", a.getApplicationNO(), applicantName, passportNo,
+				nationality, a.getStatus(), a.getSubmissionDate(), a.getVisaType(), officerName);
 
 	}
-	public void displayApplicationsTabular(ArrayList<Application> app){
-		System.out.printf("%-15s %-15s %-15s %-15s %-10s %-15s %-12s %-12s%n",
-                "Application No", "Applicant Name", "Passport No.", "Nationality",
-                "Status", "Submission Date", "Visa Type", "Officer");
-        for (Application a : app) {
-            displayApplicationTabular(a);
-        }
+
+	public void displayApplicationsTabular(ArrayList<Application> app) {
+		System.out.printf("%-15s %-15s %-15s %-15s %-10s %-15s %-12s %-12s%n", "Application No", "Applicant Name",
+				"Passport No.", "Nationality", "Status", "Submission Date", "Visa Type", "Officer");
+		for (Application a : app) {
+			displayApplicationTabular(a);
+		}
 	}
 
 	public void displayApplicationsBeforeDate(LocalDate date) {
 		ArrayList<Application> result = new ArrayList<>();
 		for (Application a : applications) {
-			if (a.getSubmissionDate().isBefore(date)) 
+			if (a.getSubmissionDate().isBefore(date))
 				result.add(a);
-			}
-			displayApplicationsTabular(result);
+		}
+		displayApplicationsTabular(result);
 
 	}
 
@@ -162,14 +153,14 @@ public class VisaOfficeSystem {
 	}
 
 	public void displayPendingApplications() {
-    ArrayList<Application> pending = new ArrayList<>();
-    for (Application a : applications) {
-        if (a.getStatus() == Status.PENDING) {
-            pending.add(a);
-        }
-    }
-    displayApplicationsTabular(pending);
-}
+		ArrayList<Application> pending = new ArrayList<>();
+		for (Application a : applications) {
+			if (a.getStatus() == Status.PENDING) {
+				pending.add(a);
+			}
+		}
+		displayApplicationsTabular(pending);
+	}
 
 	public void applicantWithMostApplications() {
 		int mostApp = 0;

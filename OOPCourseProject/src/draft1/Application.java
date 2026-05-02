@@ -10,7 +10,8 @@ public abstract class Application {
 	private Officer officer;
 	public final double OFFICE_FEE = 250;
 
-	public Application(int applicationNO, LocalDate submissionDate, Applicant applicant, Status status, Officer officer) {
+	public Application(int applicationNO, LocalDate submissionDate, Applicant applicant, Status status,
+			Officer officer) {
 		super();
 		this.applicationNO = applicationNO;
 		this.submissionDate = submissionDate;

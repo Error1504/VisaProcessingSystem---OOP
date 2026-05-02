@@ -2,7 +2,7 @@ package draft1;
 
 import java.time.LocalDate;
 
-public class StudentVisa extends Application{
+public class StudentVisa extends Application {
 	private String universityName;
 	private int studyDurationYears;
 	private boolean scholarship;
@@ -43,19 +43,21 @@ public class StudentVisa extends Application{
 	public double getSTUDENT_FEE() {
 		return STUDENT_FEE;
 	}
+
 	@Override
 	public double calculateProcessingFee() {
 		return STUDENT_FEE + OFFICE_FEE;
 
 	}
+
 	@Override
-	public String getVisaType(){
+	public String getVisaType() {
 		return "StudentVisa";
 	}
 
 	@Override
 	public String toString() {
-		return super.toString() + "\n" + "Visa Type: "+ getVisaType() +"\n" + "University Name: " + universityName + "\n"
-				+ "Study Duration: " + studyDurationYears + " years\n" + "Scholarship: " + scholarship;
+		return super.toString() + "\n" + "Visa Type: " + getVisaType() + "\n" + "University Name: " + universityName
+				+ "\n" + "Study Duration: " + studyDurationYears + " years\n" + "Scholarship: " + scholarship;
 	}
 }
