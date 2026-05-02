@@ -45,7 +45,7 @@ public class TouristVisa extends Application {
 
 	@Override
 	public String toString() {
-		return super.toString() + "\n" + "Visa Type: "+ getVisaType +"\n" + "Duration Days: " + durationDays + "\n"
+		return super.toString() + "\n" + "Visa Type: "+ getVisaType() +"\n" + "Duration Days: " + durationDays + "\n"
 				+ "Hotel Reservation: " + hotelReservation;
 	}
 }
