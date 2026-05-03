@@ -4,10 +4,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
-
 /**
  * Core system class managing all visa processing operations.
+ * 
  * @author Hassan Abdus Salam
  * @author Abdul Hadi
  */
@@ -42,34 +41,35 @@ public class VisaOfficeSystem {
 	private DataManager dm = new DataLoader();
 
 	/**
-	 * Constructs the system
-	 * upon calling it loads all the data in specified array lists 
+	 * Constructs the system upon calling it loads all the data in specified array
+	 * lists
 	 */
 	public VisaOfficeSystem() {
-	    DataLoader dataLoader = (DataLoader) dm;
-	    
-	    applicants = dm.loadApplicants();
-	    dataLoader.setApplicants(applicants);
-	    
-	    officers = dm.loadOfficers();
-	    dataLoader.setOfficers(officers);
-	    
-	    applications = dm.loadApplications();
-	    
-	    for (Application app : applications) {
-	        if (app.getApplicationNO() > application_counter) {
-	            application_counter = app.getApplicationNO();
-	        }
-	    }
+		DataLoader dataLoader = (DataLoader) dm;
+
+		applicants = dm.loadApplicants();
+		dataLoader.setApplicants(applicants);
+
+		officers = dm.loadOfficers();
+		dataLoader.setOfficers(officers);
+
+		applications = dm.loadApplications();
+
+		for (Application app : applications) {
+			if (app.getApplicationNO() > application_counter) {
+				application_counter = app.getApplicationNO();
+			}
+		}
 	}
 
 	/**
 	 * Adds new officer to the system
+	 * 
 	 * @param officer
 	 */
 	public void addVisaOfficer(Officer officer) {
-		//officer_counter++;
-		officer.setId((officer_counter + officers.size())+1);
+		// officer_counter++;
+		officer.setId((officer_counter + officers.size()) + 1);
 		officers.add(officer);
 		System.out.println("Officer " + officer.getName() + " is successfully added to the system.");
 
@@ -77,6 +77,7 @@ public class VisaOfficeSystem {
 
 	/**
 	 * adds new visa application to the system
+	 * 
 	 * @param application
 	 */
 	public void addApplication(Application application) {
@@ -87,6 +88,7 @@ public class VisaOfficeSystem {
 
 	/**
 	 * Adds new applicant to the system
+	 * 
 	 * @param applicant
 	 */
 	public void addApplicant(Applicant applicant) {
@@ -106,17 +108,21 @@ public class VisaOfficeSystem {
 
 	/**
 	 * Assigns specific officer to the given application
+	 * 
 	 * @param application
 	 * @param officer
 	 */
 	public void assignOfficertoApplicaton(Application application, Officer officer) {
 		application.setOfficer(officer);
-		/* System.out.println("Application " + application.getApplicationNO() + " has been assigned to officer "
-				+ officer.toString() + " successfully"); */
+		/*
+		 * System.out.println("Application " + application.getApplicationNO() +
+		 * " has been assigned to officer " + officer.toString() + " successfully");
+		 */
 	}
 
 	/**
 	 * Finds application by application number
+	 * 
 	 * @param no
 	 * @return the application of that application number
 	 */
@@ -130,6 +136,7 @@ public class VisaOfficeSystem {
 
 	/**
 	 * finds the officer of a given ID number
+	 * 
 	 * @param id
 	 * @return officer of that ID number
 	 */
@@ -144,6 +151,7 @@ public class VisaOfficeSystem {
 
 	/**
 	 * Finds application by the applicant's passport number
+	 * 
 	 * @param passportNo
 	 * @return the application of that that applicant
 	 */
@@ -164,24 +172,23 @@ public class VisaOfficeSystem {
 
 	/**
 	 * removes an application of a given application number
+	 * 
 	 * @param applicationNo
 	 */
 	public void removeApplication(int applicationNo) {
 		Application application = findApplicationByApplicationNo(applicationNo);
-        if (application != null) {
-            applications.remove(application);
-            System.out.println("Application " + applicationNo + " removed successfully");
-        } else {
-            System.out.println("Application " + applicationNo + " not found.");
-        }
-    }
-
-	
+		if (application != null) {
+			applications.remove(application);
+			System.out.println("Application " + applicationNo + " removed successfully");
+		} else {
+			System.out.println("Application " + applicationNo + " not found.");
+		}
+	}
 
 	/**
-	 * Updates the status of the given application.
-     * The status cannot be changed if the application is already APPROVED or REJECTED,
-     * and the new status cannot be PENDING.
+	 * Updates the status of the given application. The status cannot be changed if
+	 * the application is already APPROVED or REJECTED, and the new status cannot be
+	 * PENDING.
 	 * 
 	 * @param application
 	 * @param status
@@ -202,6 +209,7 @@ public class VisaOfficeSystem {
 
 	/**
 	 * Displays all applications assigned to the officer with the given ID
+	 * 
 	 * @param officerID
 	 */
 	public void displayAssignedApplications(int officerID) {
@@ -210,57 +218,53 @@ public class VisaOfficeSystem {
 			if (a.getOfficer().getId() == officerID)
 				result.add(a);
 
-			}
-				displayApplicationsTabular(result);
-		
+		}
+		displayApplicationsTabular(result);
+
 	}
 
 	/**
-	 * Formats and prints a single application as one table row.
-     * Intended to be called after a header line has been printed.
+	 * Formats and prints a single application as one table row. Intended to be
+	 * called after a header line has been printed.
+	 * 
 	 * @param a
 	 */
 	public void displayApplicationTabular(Application a) {
-		String applicantName =  a.getApplicant().getName();
-        String passportNo    =  a.getApplicant().getPassportNo();
-        String nationality   =  a.getApplicant().getNationality();
-        String officerName   =  (a.getOfficer() == null) ? "N/A" : a.getOfficer().getName();
+		String applicantName = a.getApplicant().getName();
+		String passportNo = a.getApplicant().getPassportNo();
+		String nationality = a.getApplicant().getNationality();
+		String officerName = (a.getOfficer() == null) ? "N/A" : a.getOfficer().getName();
 
-        System.out.printf("%18d %15s %15s %15s %10s %15s %12s %12s%n",
-                a.getApplicationNO(),
-                applicantName,
-                passportNo,
-                nationality,
-                a.getStatus(),
-                a.getSubmissionDate(),
-                a.getVisaType(),
-                officerName);
+		System.out.printf("%18d %15s %15s %15s %10s %15s %12s %12s%n", a.getApplicationNO(), applicantName, passportNo,
+				nationality, a.getStatus(), a.getSubmissionDate(), a.getVisaType(), officerName);
 
 	}
+
 	/**
 	 * displays Applications in tabular form, takes an arraylist as an argument.
+	 * 
 	 * @param app
 	 */
-	public void displayApplicationsTabular(ArrayList<Application> app){
-		System.out.printf("%-18s %-15s %-15s %-15s %-10s %-15s %-12s %-12s%n",
-                "Application No", "Applicant Name", "Passport No.", "Nationality",
-                "Status", "Submission Date", "Visa Type", "Officer");
-        for (Application a : app) {
-            displayApplicationTabular(a);
-        }
+	public void displayApplicationsTabular(ArrayList<Application> app) {
+		System.out.printf("%-18s %-15s %-15s %-15s %-10s %-15s %-12s %-12s%n", "Application No", "Applicant Name",
+				"Passport No.", "Nationality", "Status", "Submission Date", "Visa Type", "Officer");
+		for (Application a : app) {
+			displayApplicationTabular(a);
+		}
 	}
 
 	/**
 	 * Prints all applications submitted before the specified date
-	 * @param date 
+	 * 
+	 * @param date
 	 */
 	public void displayApplicationsBeforeDate(LocalDate date) {
 		ArrayList<Application> result = new ArrayList<>();
 		for (Application a : applications) {
-			if (a.getSubmissionDate().isBefore(date)) 
+			if (a.getSubmissionDate().isBefore(date))
 				result.add(a);
-			}
-			displayApplicationsTabular(result);
+		}
+		displayApplicationsTabular(result);
 
 	}
 
@@ -272,7 +276,7 @@ public class VisaOfficeSystem {
 		for (Application a : applications) {
 			totalRevenue += a.calculateProcessingFee();
 		}
-			System.out.printf("Total revenue is: QAR %.1f\n", totalRevenue);
+		System.out.printf("Total revenue is: QAR %.1f\n", totalRevenue);
 	}
 
 	/**
@@ -288,7 +292,7 @@ public class VisaOfficeSystem {
 
 	/**
 	 * Finds and prints the applicant who has submitted the most applications
-
+	 * 
 	 */
 	public void applicantWithMostApplications() {
 		int mostApp = 0;
@@ -317,13 +321,13 @@ public class VisaOfficeSystem {
 	 * Saves all current data (applicants, applications, officers) to csv files
 	 */
 	public void save() {
-    ((DataLoader) dm).setApplicants(applicants);
-    ((DataLoader) dm).setApplications(applications);
-    ((DataLoader) dm).setOfficers(officers);
-    dm.saveApplicants();
-    dm.saveOfficers();
-    dm.saveApplications();
-    System.out.println("Data saved successfully.");
-	
-}
+		((DataLoader) dm).setApplicants(applicants);
+		((DataLoader) dm).setApplications(applications);
+		((DataLoader) dm).setOfficers(officers);
+		dm.saveApplicants();
+		dm.saveOfficers();
+		dm.saveApplications();
+		System.out.println("Data saved successfully.");
+
+	}
 }
