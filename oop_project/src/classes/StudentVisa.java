@@ -3,12 +3,13 @@ package classes;
 import java.time.LocalDate;
 
 /**
- *  Student Visa application class, sub class of application.
- *  @author Hassan Abdus Salam
- *  @version 1.0
+ * Student Visa application class, sub class of application.
+ * 
+ * @author Hassan Abdus Salam
+ * @version 1.0
  */
 
-public class StudentVisa extends Application{
+public class StudentVisa extends Application {
 	/**
 	 * Name of the university the applicant will attend
 	 */
@@ -28,14 +29,15 @@ public class StudentVisa extends Application{
 
 	/**
 	 * Constructs a StudentVisa application
+	 * 
 	 * @param appNo              the application number
-     * @param applicant          the applicant
-     * @param status             the current status
-     * @param submissionDate     the submission date
-     * @param officer            the assigned officer 
-     * @param universityName     the name of the university
-     * @param studyDurationYears the study duration in years
-     * @param scholarship        true if the applicant has a scholarship
+	 * @param applicant          the applicant
+	 * @param status             the current status
+	 * @param submissionDate     the submission date
+	 * @param officer            the assigned officer
+	 * @param universityName     the name of the university
+	 * @param studyDurationYears the study duration in years
+	 * @param scholarship        true if the applicant has a scholarship
 	 */
 	public StudentVisa(int appNO, Applicant applicant, Status status, LocalDate submissionDate, Officer officer,
 			String universityName, int studyDurationYears, boolean scholarship) {
@@ -54,6 +56,7 @@ public class StudentVisa extends Application{
 
 	/**
 	 * Sets the university name
+	 * 
 	 * @param universityName
 	 */
 	public void setUniversityName(String universityName) {
@@ -69,6 +72,7 @@ public class StudentVisa extends Application{
 
 	/**
 	 * Sets the study duration in years
+	 * 
 	 * @param studyDurationYears
 	 */
 	public void setStudyDurationYears(int studyDurationYears) {
@@ -84,6 +88,7 @@ public class StudentVisa extends Application{
 
 	/**
 	 * Sets whether the applicant has a scholarship
+	 * 
 	 * @param scholarship
 	 */
 	public void setScholarship(boolean scholarship) {
@@ -96,21 +101,23 @@ public class StudentVisa extends Application{
 	public double getSTUDENT_FEE() {
 		return STUDENT_FEE;
 	}
+
 	/**
-	 *Calculates the total processing fee (student fee + office fee)
-     *
-     * @return total processing fee
+	 * Calculates the total processing fee (student fee + office fee)
+	 *
+	 * @return total processing fee
 	 */
 	@Override
 	public double calculateProcessingFee() {
 		return STUDENT_FEE + OFFICE_FEE;
 
 	}
+
 	/**
 	 * @return the visa type
 	 */
 	@Override
-	public String getVisaType(){
+	public String getVisaType() {
 		return "StudentVisa";
 	}
 
@@ -119,7 +126,7 @@ public class StudentVisa extends Application{
 	 */
 	@Override
 	public String toString() {
-		return super.toString() + "\n" + "Visa Type: "+ getVisaType() +"\n" + "University Name: " + universityName + "\n"
-				+ "Study Duration: " + studyDurationYears + " years\n" + "Scholarship: " + scholarship;
+		return super.toString() + "\n" + "Visa Type: " + getVisaType() + "\n" + "University Name: " + universityName
+				+ "\n" + "Study Duration: " + studyDurationYears + " years\n" + "Scholarship: " + scholarship;
 	}
 }

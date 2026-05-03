@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 /**
  * Applicant class with Identification attributes
+ * 
  * @author Hassan Abdus Salam
  * @version 1.0
  */
@@ -25,14 +26,14 @@ public class Applicant {
 	 */
 	private LocalDate birthdate;
 
-	
 	/**
 	 * Constructs an applicant with parameters below:
-	 * @param name 			Applicant's name 
-	 * @param passportNo	Applicant's passport number
-	 * @param nationality	Applicant's nationality
-	 * @param birthdate		Applicant's date of birth
-	 */	
+	 * 
+	 * @param name        Applicant's name
+	 * @param passportNo  Applicant's passport number
+	 * @param nationality Applicant's nationality
+	 * @param birthdate   Applicant's date of birth
+	 */
 	public Applicant(String name, String passportNo, String nationality, LocalDate birthdate) {
 		super();
 		this.name = name;
@@ -50,6 +51,7 @@ public class Applicant {
 
 	/**
 	 * Sets Applicant's name
+	 * 
 	 * @param Applicant's name
 	 */
 	public void setName(String name) {
@@ -65,6 +67,7 @@ public class Applicant {
 
 	/**
 	 * Set Applicant's passportNo
+	 * 
 	 * @param Applicant's passportNo
 	 */
 	public void setPassportNo(String passportNo) {
@@ -80,6 +83,7 @@ public class Applicant {
 
 	/**
 	 * Set Applicant's nationality
+	 * 
 	 * @param nationality
 	 */
 	public void setNationality(String nationality) {
@@ -94,7 +98,8 @@ public class Applicant {
 	}
 
 	/**
-	 * Set Applicant's date of birth 
+	 * Set Applicant's date of birth
+	 * 
 	 * @param birthdate
 	 */
 	public void setBirthdate(LocalDate birthdate) {
@@ -102,7 +107,7 @@ public class Applicant {
 	}
 
 	/**
-	 *@return String as per the project file. 
+	 * @return String as per the project file.
 	 */
 	@Override
 	public String toString() {

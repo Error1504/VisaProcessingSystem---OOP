@@ -4,8 +4,9 @@ import java.time.LocalDate;
 
 /**
  * Application class, abstract and father class to three other visa classes
+ * 
  * @author Hassan Abdus Salam
- * @version 1.0 
+ * @version 1.0
  */
 public abstract class Application {
 	/**
@@ -35,13 +36,15 @@ public abstract class Application {
 
 	/**
 	 * Construct an application with parameters below:
-	 * @param applicationNO 		the application number
-	 * @param submissionDate		the date of submission
-	 * @param applicant				the applicant who made this application	
-	 * @param status				the current status 
-	 * @param officer				the officer assigned
+	 * 
+	 * @param applicationNO  the application number
+	 * @param submissionDate the date of submission
+	 * @param applicant      the applicant who made this application
+	 * @param status         the current status
+	 * @param officer        the officer assigned
 	 */
-	public Application(int applicationNO, LocalDate submissionDate, Applicant applicant, Status status, Officer officer) {
+	public Application(int applicationNO, LocalDate submissionDate, Applicant applicant, Status status,
+			Officer officer) {
 		super();
 		this.applicationNO = applicationNO;
 		this.submissionDate = submissionDate;
@@ -52,17 +55,17 @@ public abstract class Application {
 	}
 
 	/**
-	 *  Calculates and returns the total processing fee for this application.
-     * 	must be overridden by each visa subclass.
-     *
-     * @return the total processing fee
+	 * Calculates and returns the total processing fee for this application. must be
+	 * overridden by each visa subclass.
+	 *
+	 * @return the total processing fee
 	 * 
 	 */
 	public abstract double calculateProcessingFee();
 
 	/**
 	 * 
-     *
+	 *
 	 * @return the application number
 	 */
 	public int getApplicationNO() {
@@ -71,6 +74,7 @@ public abstract class Application {
 
 	/**
 	 * Sets the application number
+	 * 
 	 * @param applicationNO
 	 */
 	public void setApplicationNO(int applicationNO) {
@@ -88,6 +92,7 @@ public abstract class Application {
 
 	/**
 	 * Sets the date of submission
+	 * 
 	 * @param submissionDate
 	 */
 	public void setSubmissionDate(LocalDate submissionDate) {
@@ -95,13 +100,15 @@ public abstract class Application {
 	}
 
 	/**
-	 * @return the applicant 
+	 * @return the applicant
 	 */
 	public Applicant getApplicant() {
 		return applicant;
 	}
 
-	/** Sets the applicant
+	/**
+	 * Sets the applicant
+	 * 
 	 * @param applicant
 	 */
 	public void setApplicant(Applicant applicant) {
@@ -117,6 +124,7 @@ public abstract class Application {
 
 	/**
 	 * Sets the Status
+	 * 
 	 * @param status
 	 */
 	public void setStatus(Status status) {
@@ -132,6 +140,7 @@ public abstract class Application {
 
 	/**
 	 * sets an officer to the application
+	 * 
 	 * @param officer
 	 */
 	public void setOfficer(Officer officer) {
@@ -146,7 +155,7 @@ public abstract class Application {
 	}
 
 	/**
-	 * Sets the status to approved 
+	 * Sets the status to approved
 	 */
 	public void approveApplication() {
 		setStatus(Status.APPROVED);
@@ -160,8 +169,7 @@ public abstract class Application {
 	}
 
 	/**
-	 * @return the visa type 
-	 * must be overridden by the sub classes
+	 * @return the visa type must be overridden by the sub classes
 	 */
 	public abstract String getVisaType();
 
