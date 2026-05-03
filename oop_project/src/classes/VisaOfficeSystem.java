@@ -55,6 +55,12 @@ public class VisaOfficeSystem {
 	    dataLoader.setOfficers(officers);
 	    
 	    applications = dm.loadApplications();
+	    
+	    for (Application app : applications) {
+	        if (app.getApplicationNO() > application_counter) {
+	            application_counter = app.getApplicationNO();
+	        }
+	    }
 	}
 
 	/**
@@ -74,8 +80,8 @@ public class VisaOfficeSystem {
 	 * @param application
 	 */
 	public void addApplication(Application application) {
-		// application_counter++;
-		application.setApplicationNO((application_counter + applications.size())+1);
+		application_counter++;
+		application.setApplicationNO(application_counter);
 		applications.add(application);
 	}
 
