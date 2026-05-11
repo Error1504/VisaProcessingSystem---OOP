@@ -4,15 +4,17 @@ public class Officer {
 	private int id;
 	private String name;
 
+	public Officer() {
+	}
+
 	public Officer(String name) {
-		super();
-		this.name = name;
+		this();
+		setName(name);
 	}
 
 	public Officer(int id, String name) {
-		super();
-		this.id = id;
-		this.name = name;
+		this(name);
+		setId(id);
 	}
 
 	public int getId() {

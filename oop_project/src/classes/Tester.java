@@ -196,6 +196,7 @@ public class Tester {
 		System.out.println("2) Calculate total revenue");
 		System.out.println("3) Find applicant with most applications");
 		System.out.println("4) Display applications before a specific date");
+		System.out.println("5) Detailed Visa Perfomance Report");
 		System.out.println("0) Back");
 		System.out.println("Enter option number:");
 
@@ -211,7 +212,94 @@ public class Tester {
 			System.out.println("Enter date [yyyy-mm-dd]:");
 			LocalDate date = LocalDate.parse(in.next());
 			printApplicationsBeforeDate(system, date);
+		} else if (choice == 5) {
+			System.out.print("Start date?	");
+			LocalDate start = LocalDate.parse(in.next());
+			System.out.print("End date?	");
+			LocalDate end = LocalDate.parse(in.next());
+			detailReport(system, start, end);
 		}
+	}
+
+	public static void detailReport(VisaOfficeSystem system, LocalDate start, LocalDate end) {
+		int officerCount = 0;
+		int approved = 0;
+		int pending = 0;
+		int rejected = 0;
+		int total = 0;
+		double revenue = 0;
+		System.out.printf("Visa report from %s to %s for all visas, as follows: %n", start, end);
+		for (Officer o : system.officers) {
+			officerCount += 1;
+			int studentApproved = 0;
+			int studentPending = 0;
+			int studentRejected = 0;
+			int touristApproved = 0;
+			int touristPending = 0;
+			int touristRejected = 0;
+			int workApproved = 0;
+			int workPending = 0;
+			int workRejected = 0;
+			int totalVisas = 0;
+			System.out.printf("%d- Officer: %s%n", officerCount, o.getName());
+			for (Application a : system.applications) {
+				if (a.getOfficer().getId() == o.getId() && a.getSubmissionDate().isAfter(start) && a.getSubmissionDate().isBefore(end)) {
+					if (a instanceof StudentVisa sv) {
+						if (sv.getStatus() == Status.APPROVED) {
+							studentApproved += 1;
+							approved += 1;
+						} else if (sv.getStatus() == Status.PENDING) {
+							studentPending += 1;
+							pending += 1;
+						} else if (sv.getStatus() == Status.REJECTED) {
+							studentRejected += 1;
+							rejected += 1;
+						}
+						revenue += sv.calculateProcessingFee();
+						totalVisas += 1;
+					} else if (a instanceof TouristVisa tv) {
+						if (tv.getStatus() == Status.APPROVED) {
+							touristApproved += 1;
+							approved += 1;
+						} else if (tv.getStatus() == Status.PENDING) {
+							touristPending += 1;
+							pending += 1;
+						} else if (tv.getStatus() == Status.REJECTED) {
+							touristRejected += 1;
+							rejected += 1;
+						}
+						revenue += tv.calculateProcessingFee();
+						totalVisas += 1;
+					} else if (a instanceof WorkVisa wv) {
+						if (wv.getStatus() == Status.APPROVED) {
+							workApproved += 1;
+							approved += 1;
+						} else if (wv.getStatus() == Status.PENDING) {
+							workPending += 1;
+							pending += 1;
+						} else if (wv.getStatus() == Status.REJECTED) {
+							workRejected += 1;
+							rejected += 1;
+						}
+						revenue += wv.calculateProcessingFee();
+						totalVisas += 1;
+					}
+				}
+			}
+			System.out.printf("	Student: Approved: %d visa(s), Pending: %d visa(s), Rejected: %d visa(s)%n",
+					studentApproved, studentPending, studentRejected);
+			System.out.printf("	Tourist: Approved: %d visa(s), Pending: %d visa(s), Rejected: %d visa(s)%n",
+					touristApproved, touristPending, touristRejected);
+			System.out.printf("	Work: Approved: %d visa(s), Pending: %d visa(s), Rejected: %d visa(s)%n", workApproved,
+					workPending, workRejected);
+			System.out.printf("Total assigned applications: %d visa(s)%n", totalVisas);
+		}
+		total += approved + pending + rejected;
+		System.out.printf("Overall Approved visas: %d visa(s)%n", approved);
+		System.out.printf("Overall Pending visas: %d visa(s)%n", pending);
+		System.out.printf("Overall Rejected visas: %d visa(s)%n", rejected);
+		System.out.printf("Overall applications in the selected period: %d visa(s)%n", total);
+		System.out.printf("Overall revenue from selected applications: QAR %.2f%n", revenue);
 	}
 
 	/**

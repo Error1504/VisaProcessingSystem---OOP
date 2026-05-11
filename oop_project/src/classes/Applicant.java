@@ -25,6 +25,12 @@ public class Applicant {
 	 * Applicant's date of birth
 	 */
 	private LocalDate birthdate;
+	
+	/**
+	 * Constructs an empty applicant 
+	 */
+	public Applicant() {
+	}
 
 	/**
 	 * Constructs an applicant with parameters below:
@@ -35,7 +41,7 @@ public class Applicant {
 	 * @param birthdate   Applicant's date of birth
 	 */
 	public Applicant(String name, String passportNo, String nationality, LocalDate birthdate) {
-		super();
+		this();
 		this.name = name;
 		this.passportNo = passportNo;
 		this.nationality = nationality;

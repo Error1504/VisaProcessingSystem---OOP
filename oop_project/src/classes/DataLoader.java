@@ -108,9 +108,9 @@ public class DataLoader implements DataManager {
 				LocalDate birthdate = LocalDate.parse(parts[3].trim(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 				Status status = Status.valueOf(parts[4]);
 
-				Officer officer = null;
-				if (!parts[5].equals("N/A")) {
-					int officer_id = Integer.parseInt(parts[5]);
+				Officer officer = new Officer();
+				int officer_id = Integer.parseInt(parts[5]);
+				if (officer_id != 0) {
 					for (Officer o : officers) {
 						if (o.getId() == officer_id) {
 							officer = o;
@@ -119,7 +119,7 @@ public class DataLoader implements DataManager {
 					}
 				}
 
-				Applicant applicant = null;
+				Applicant applicant = new Applicant();
 				for (Applicant a : applicants) {
 					if (a.getPassportNo().equals(passport_number)) {
 						applicant = a;
@@ -153,6 +153,8 @@ public class DataLoader implements DataManager {
 			System.out.println("File is not found " + e);
 		} catch (IOException e) {
 			System.out.println("IO Error " + e);
+		} catch (Exception e) {
+			System.out.println("Exception " + e);
 		}
 		return applications;
 	}

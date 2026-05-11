@@ -75,7 +75,7 @@ public class TouristVisa extends Application {
 	/**
 	 * @return tourist visa fee
 	 */
-	public static double getTouristFee() {
+	public double getTOURIST_FEE() {
 		return TOURIST_FEE;
 	}
 
